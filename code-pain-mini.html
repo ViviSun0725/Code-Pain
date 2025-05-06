@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>簡易Codepen Demo</title>
+    <style>
+      body {
+        display: flex;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .editor {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        box-sizing: border-box;
+        background: #f9f9f9;
+      }
+      textarea {
+        flex: 1;
+        margin-bottom: 10px;
+        resize: none;
+        font-family: monospace;
+      }
+      .preview {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        border-left: 2px solid #ccc;
+      }
+      iframe {
+        flex: 1;
+        width: 100%;
+        border: none;
+      }
+      .console {
+        height: 200px;
+        background: black;
+        color: #00ff00;
+        font-family: monospace;
+        overflow-y: auto;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="editor">
+      <textarea id="htmlCode" placeholder="Write HTML here..."></textarea>
+      <textarea id="cssCode" placeholder="Write CSS here..."></textarea>
+      <textarea id="jsCode" placeholder="Write JavaScript here..."></textarea>
+      <button onclick="runCode()">Run</button>
+    </div>
+
+    <div class="preview">
+      <iframe id="preview"></iframe>
+      <div class="console" id="consoleOutput">Console Output:</div>
+    </div>
+
+    <script>
+      function runCode() {
+        const html = document.getElementById("htmlCode").value;
+        const css = document.getElementById("cssCode").value;
+        const js = document.getElementById("jsCode").value;
+
+        const iframe = document.getElementById("preview");
+        const consoleOutput = document.getElementById("consoleOutput");
+
+        // 重置console區域
+        consoleOutput.innerHTML = "Console Output:<br>";
+
+        const fullCode = `
+        <html>
+          <head>
+            <style>${css}</style>
+          </head>
+          <body>
+            ${html}
+            <script>
+              (function(){
+                const originalLog = console.log;
+                console.log = function(...args){
+                  window.parent.postMessage({ type: 'console', message: args.join(' ') }, '*');
+                  originalLog.apply(console, args);
+                };
+                
+                const originalError = console.error;
+                console.error = function(...args){
+                  window.parent.postMessage({ type: 'error', message: args.join(' ') }, '*');
+                  originalError.apply(console, args);
+                };
+              })();
+            <\/script>
+            <script>
+              try {
+                ${js}
+              } catch (err) {
+                console.error('Error:', err.message);
+              }
+            <\/script>
+          </body>
+        </html>
+      `;
+
+        iframe.srcdoc = fullCode;
+      }
+
+      window.addEventListener("message", function (event) {
+        const consoleOutput = document.getElementById("consoleOutput");
+        if (event.data.type === "console") {
+          consoleOutput.innerHTML += `<div>${event.data.message}</div>`;
+        }
+        if (event.data.type === "error") {
+          consoleOutput.innerHTML += `<div style="color:red;">${event.data.message}</div>`;
+        }
+      });
+    </script>
+  </body>
+</html>
