@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表單練習</title>
+  <link rel="stylesheet" href="/preflight.css">
+  <link rel="stylesheet" href="表單練習.css">
+</head>
+<body>
+  
+  <form method="get" action="https://www.google.com/search">
+      
+      <div class="preference first-div">
+        &nbsp; 
+      </div>
+      <div class="second-div">
+        F2E02 表單練習
+      </div>      
+      <div class="third-div">
+        僅供新尖兵 F2E02 表單切版練習作業
+      </div>
+      <div class="fourth-div">
+        <a href="https://www.google.com/" target="_blank" class="google">登入GOOGLE</a>
+        即可儲存進度
+      </div>
+      <div class="text-color fifth-div">
+        *表示必填問題
+      </div>
+      
+    <div>
+      <label for="your-name">
+        姓名<span class="text-color">*</span>
+      </label>
+      <br>
+      <input type="text" placeholder="您的回答" required>
+    </div>
+    <div>
+      <label for="your-name">
+      信箱<span class="text-color">*</span>
+      </label>
+      <br>
+      <input type="email" placeholder="您的回答" required>
+    </div>
+    <div>
+      <label for="your-name">
+        生日
+        <br>
+        <small>日期</small>
+      </label>
+      <br>
+      <input type="date" value="2025-03-03" min="1999-01-03" max="2025-03-12" placeholder="您的回答" >
+    </div>
+    <div>
+      <label for="your-name">
+        想跟老師說悄悄話        
+      </label>      
+      <br>
+      <textarea placeholder="您的回答" id="your-name"></textarea>
+    </div>
+    <div>
+      喜歡的顏色
+      <br>
+      <input type="radio" name="text-color" id="yellow" value="yellow">
+      <label for="yellow">
+        黃
+      </label>
+      <br>
+      <input type="radio" name="text-color" id="green" value="green">
+      <label for="green">
+        綠
+      </label>
+      <br>
+      <input type="radio" name="text-color" id="red" value="red">
+      <label for="red">
+        紅
+      </label>
+    </div>
+    <div>
+      喜歡吃的飲食類型
+      <br>
+      <input type="checkbox" name="food" id="chinese" value="chinese">
+      <label for="chinese">
+        中式
+      </label>
+      <br>
+      <input type="checkbox" name="food" id="italian" value="italian">
+      <label for="italian">
+        義式
+      </label>
+      <br>
+      <input type="checkbox" name="food" id="japanese" value="japanese">
+      <label for="japanese">
+        日式
+      </label>
+      <br>
+      <input type="checkbox" name="food" id="korean" value="korean">
+      <label for="korean">
+        韓式
+      </label>
+      <br>
+      <input type="checkbox" name="food" id="american" value="american">
+      <label for="american">
+        美式
+      </label>
+      <br>
+      <input type="checkbox" name="food" id="tailand" value="tailand">
+      <label for="tailand">
+        泰式
+      </label>
+    </div>
+    <div>
+        
+        最想去的國家
+        <br>
+    
+      <select>        
+        <optgroup  label="亞洲" >
+            <option value="日本">日本</option>
+            <option value="韓國">韓國</option>
+        </optgroup>
+        <optgroup label="歐洲">
+            <option value="德國">德國</option>
+            <option value="英國">英國</option>
+        </optgroup>
+        <optgroup label="美洲">
+            <option value="加拿大">加拿大</option>
+            <option value="美國">美國</option>
+        </optgroup>
+      </select>
+    
+    </div>
+    <div>
+      
+        <button type="submit" class="submit">提交</button>
+      
+        
+        
+      
+        <button type="reset" >清除表單</button>
+      
+      
+    </div>
+    
+  </form>
+
+</body>
+</html>

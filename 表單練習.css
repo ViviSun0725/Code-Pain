@@ -1,0 +1,74 @@
+body{
+  background-color: #f0ebf8;
+}
+div{
+  border: 1px solid black;
+  padding: 10px;
+  margin: 12px;
+  background-color: white;
+  width: 650px;  
+  border-radius: 5px;
+  
+  margin-left: 33%;
+  margin-right: 30%;
+}
+
+.first-div{
+  background-color: rgb(103, 58, 183);
+  height: 5px;
+  margin-bottom: 0;
+  border-radius: 5px 5px 0 0;
+}
+.second-div{
+  font-size:xx-large;
+  margin-top: 0;
+  border-radius: 0 0 0 0;
+  margin-bottom: 0;
+  border-bottom: 0;
+  border-top: 0;
+  
+}
+.third-div{
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-radius: 0 0 0 0;
+  border-top: 0;
+}
+.fourth-div{
+  margin-top: 0;
+  margin-bottom: 0;
+  border-radius: 0 0 0 0;
+  border-bottom: 0;
+  border-top: 0;
+}
+.fifth-div{
+  margin-top: 0;
+  border-radius: 0 0 5px 5px;
+  
+}
+.submit{
+  background-color: rgb(144, 72, 212);
+  border: 1px solid black;
+  padding: 5px 20px 5px 20px;
+  border-radius: 6px;
+  color: #ffffff;
+  margin-right: 480px;
+}
+.text-color{
+  color: #ca0000;
+}
+.google{
+  color: blue;
+}
+select{
+  width: 180px;
+  height: 50px;
+  
+}
+optgroup{
+  color: #968e8e;
+}
+option{
+  color: #000;
+}
